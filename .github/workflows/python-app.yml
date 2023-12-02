@@ -45,7 +45,7 @@ jobs:
         id: cached-poetry-dependencies
         uses: actions/cache@v3
         with:
-          path: /home/runner/work/iac-labs/iac-labs/example-app/.venv
+          path: /home/runner/.cache/pypoetry/virtualenvs
           key: ${{ runner.os }}-venv
       - name: Task lint
         run: poetry run task lint
@@ -66,7 +66,7 @@ jobs:
         id: cached-poetry-dependencies
         uses: actions/cache@v3
         with:
-          path: /home/runner/work/iac-labs/iac-labs/example-app/.venv
+          path: /home/runner/.cache/pypoetry/virtualenvs
           key: ${{ runner.os }}-venv
       - name: Task UniTest
         run: poetry run task test
