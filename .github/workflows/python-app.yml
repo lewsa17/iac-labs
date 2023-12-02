@@ -12,9 +12,8 @@ on:
 permissions:
   contents: read
   
-concurrency:
-  group: '${{ jobs.<job_id>.steps[*].name }}'
-  cancel-in-progress: true
+    concurrency:
+      group: some-group-name
 jobs:
   build:
 
