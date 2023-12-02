@@ -30,7 +30,12 @@ jobs:
     - name: Install dependencies
       run: |
         poetry install --no-root --no-interaction
-
+    - name: Cache build venv
+      id: cached-poetry-dependencies
+      uses: actions/cache@v3
+      with:
+        path: /home/runner/.cache/pypoetry/virtualenvs
+        key: ${{ runner.os }}-venv
       
  job-2:
     runs-on: ubuntu-latest
