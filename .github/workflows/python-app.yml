@@ -32,3 +32,12 @@ jobs:
     - name: Install dependencies
       run: |
         poetry install --no-root --no-interaction
+    - name: Task Test
+      run: poetry run task test
+    - name: Task lint
+      run: poetry run task lint
+    - name: Task Formatter
+      run: poetry run task formatter
+    - name: Task Security
+      run: poetry run task security
+        
