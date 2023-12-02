@@ -12,8 +12,8 @@ on:
 permissions:
   contents: read
   
-    concurrency:
-      group: some-group-name
+concurrency:
+  group: some-group-name
 jobs:
   build:
 
