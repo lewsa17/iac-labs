@@ -42,8 +42,8 @@ jobs:
           ~/.cache/pypoetry/virtualenvs
           ~/AppData/Local/pypoetry/Cache/virtualenvs
         key: ${{ runner.os }}-venv
-    - name: Poetry config
-      run: poetry config --list
+    - name: Poetry dir
+      run: ls -R ~/.local
       
  lint:
     strategy:
@@ -70,6 +70,8 @@ jobs:
             ~/.cache/pypoetry/virtualenvs
             ~/AppData/Local/pypoetry/Cache/virtualenvs
           key: ${{ runner.os }}-venv
+      - name: poetry dir
+        run: ls -R ~/local
       - name: Task lint
         run: poetry run task lint
  
