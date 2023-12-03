@@ -123,7 +123,7 @@ jobs:
           path: |
             /home/runner/.cache/pypoetry/virtualenvs
             D:\Users\runneradmin\AppData\Local\pypoetry\Cache\virtualenvs
-            key: ${{ runner.os }}-venv
+          key: ${{ runner.os }}-venv
       - name: Task Security
         run: poetry run task security
   
