@@ -32,10 +32,10 @@ class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = (
         f"{os.getenv('DB_ENGINE', 'postgresql')}://"
         f"{os.getenv('DB_USERNAME', 'appseed_db_usr')}:"
-        f"{os.getenv('DB_PASS', 'pass')}@"
-        f"{os.getenv('DB_HOST', 'localhost')}:"
-        f"{os.getenv('DB_PORT', '3306')}/"
-        f"{os.getenv('DB_NAME', 'appseed_db')}"
+        f"{os.getenv('DB_PASS', 'A0yzveIbDVugnPpIUywLDnl8XPNm3f2p')}@"
+        f"{os.getenv('DB_HOST', 'dpg-clmbtgcjtl8s73aig360-a')}:"
+        f"{os.getenv('DB_PORT', '5432')}/"
+        f"{os.getenv('DB_NAME', 'appseed_db_0v8k')}"
     )
 
 
