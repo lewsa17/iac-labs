@@ -18,7 +18,7 @@ jobs:
     defaults:
       run:
         working-directory: /home/runner/work/iac-labs/iac-labs/example-app
-        shell: /usr/bin/bash -e
+        shell: bash
         
     steps:
     - uses: actions/checkout@v3
