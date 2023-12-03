@@ -14,6 +14,9 @@ permissions:
   
 jobs:
  build:
+    strategy:
+      matrix:
+        os: [ "ubuntu-latest", "windows-latest" ]
     runs-on: ubuntu-latest    
     defaults:
       run:
@@ -39,6 +42,9 @@ jobs:
         key: ${{ runner.os }}-venv
       
  lint:
+    strategy:
+      matrix:
+        os: [ "ubuntu-latest", "windows-latest" ]
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -62,6 +68,9 @@ jobs:
         run: poetry run task lint
  
  formatter:
+    strategy:
+      matrix:
+        os: [ "ubuntu-latest", "windows-latest" ]
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -85,6 +94,9 @@ jobs:
         run: poetry run task formatter
 
  security:
+    strategy:
+      matrix:
+        os: [ "ubuntu-latest", "windows-latest" ]
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -112,6 +124,9 @@ jobs:
         run: poetry run task security
   
  Unitests:
+    strategy:
+      matrix:
+        os: [ "ubuntu-latest", "windows-latest" ]
     runs-on: ubuntu-latest
     defaults:
       run:
