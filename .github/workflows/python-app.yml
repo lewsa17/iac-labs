@@ -38,7 +38,53 @@ jobs:
         path: /home/runner/.cache/pypoetry/virtualenvs
         key: ${{ runner.os }}-venv
       
- job-2:
+ lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: /home/runner/work/iac-labs/iac-labs/example-app
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+      - name: Install Poetry
+        uses: snok/install-poetry@v1      
+      - name: Cache build venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v3
+        with:
+          path: /home/runner/.cache/pypoetry/virtualenvs
+          key: ${{ runner.os }}-venv
+      - name: Task lint
+        run: poetry run task lint
+ 
+ formatter:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: /home/runner/work/iac-labs/iac-labs/example-app
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+      - name: Install Poetry
+        uses: snok/install-poetry@v1      
+      - name: Cache build venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v3
+        with:
+          path: /home/runner/.cache/pypoetry/virtualenvs
+          key: ${{ runner.os }}-venv
+      - name: Task Formatter
+        run: poetry run task formatter
+
+ security:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -64,12 +110,13 @@ jobs:
         run: poetry run task formatter
       - name: Task Security
         run: poetry run task security
- job-3:
+  
+ Unitests:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: /home/runner/work/iac-labs/iac-labs/example-app
-    needs: job-2
+    needs: [lint, formatter, security]
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python 3.10
