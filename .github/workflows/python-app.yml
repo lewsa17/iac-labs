@@ -71,7 +71,7 @@ jobs:
             ~/AppData/Local/pypoetry/Cache/virtualenvs
           key: ${{ runner.os }}-venv
       - name: poetry dir
-        run: ls -R ~/local
+        run: ls -R ~/.local
       - name: Task lint
         run: poetry run task lint
  
