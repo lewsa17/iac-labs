@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest    
     defaults:
       run:
-        working-directory: /home/runner/work/iac-labs/iac-labs/example-app
+        working-directory: ./example-app
         shell: bash
         
     steps:
@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: /home/runner/work/iac-labs/iac-labs/example-app
+        working-directory: ./example-app
     needs: build
     steps:
       - uses: actions/checkout@v3
@@ -74,7 +74,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: /home/runner/work/iac-labs/iac-labs/example-app
+        working-directory: /./example-app
     needs: build
     steps:
       - uses: actions/checkout@v3
@@ -100,7 +100,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: /home/runner/work/iac-labs/iac-labs/example-app
+        working-directory: ./example-app
     needs: build
     steps:
       - uses: actions/checkout@v3
@@ -130,7 +130,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: /home/runner/work/iac-labs/iac-labs/example-app
+        working-directory: ./example-app
     needs: [lint, formatter, security]
     steps:
       - uses: actions/checkout@v3
