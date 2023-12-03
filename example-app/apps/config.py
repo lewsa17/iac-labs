@@ -33,7 +33,7 @@ class ProductionConfig(Config):
         f"{os.getenv('DB_ENGINE', 'postgresql')}://"
         f"{os.getenv('DB_USERNAME', 'appseed_db_usr')}:"
         f"{os.getenv('DB_PASS', 'A0yzveIbDVugnPpIUywLDnl8XPNm3f2p')}@"
-        f"{os.getenv('DB_HOST', 'dpg-clmbtgcjtl8s73aig360-a')}:"
+        f"{os.getenv('DB_HOST', 'dpg-clmbtgcjtl8s73aig360-a.oregon-postgres.render.com')}:"
         f"{os.getenv('DB_PORT', '5432')}/"
         f"{os.getenv('DB_NAME', 'appseed_db_0v8k')}"
     )
