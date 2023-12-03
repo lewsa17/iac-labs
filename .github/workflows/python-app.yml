@@ -41,10 +41,7 @@ jobs:
         path: |
           ~/.cache/pypoetry/virtualenvs
           ~/AppData/Local/pypoetry/Cache/virtualenvs
-        key: ${{ runner.os }}-venv
-    - name: Poetry dir
-      run: ls -R ~/.local
-      
+        key: ${{ runner.os }}-venv      
  lint:
     strategy:
       matrix:
@@ -70,10 +67,8 @@ jobs:
             ~/.cache/pypoetry/virtualenvs
             ~/AppData/Local/pypoetry/Cache/virtualenvs
           key: ${{ runner.os }}-venv
-      - name: poetry dir
-        run: ls -R ~/.local
       - name: Task lint
-        run: poetry run task lint
+        run: ~/.local/bin/poetry run task lint
  
  formatter:
     strategy:
@@ -101,7 +96,7 @@ jobs:
             ~/AppData/Local/pypoetry/Cache/virtualenvs
           key: ${{ runner.os }}-venv
       - name: Task Formatter
-        run: poetry run task formatter
+        run: ~/.local/bin/poetry run task formatter
 
  security:
     strategy:
@@ -129,7 +124,7 @@ jobs:
             ~/AppData/Local/pypoetry/Cache/virtualenvs
           key: ${{ runner.os }}-venv
       - name: Task Security
-        run: poetry run task security
+        run: ~/.local/bin/poetry run task security
   
  Unitests:
     strategy:
@@ -157,4 +152,4 @@ jobs:
             ~/AppData/Local/pypoetry/Cache/virtualenvs
           key: ${{ runner.os }}-venv
       - name: Task UniTest
-        run: poetry run task test
+        run: ~/.local/bin/poetry run task test
