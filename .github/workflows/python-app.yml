@@ -30,14 +30,7 @@ jobs:
       with:
         python-version: "3.10"
     - name: Install Poetry
-      uses: snok/install-poetry@v1
-      with:
-        version: latest
-        virtualenvs-create: true
-        virtualenvs-in-project: false
-        virtualenvs-path: ${{cache-dir}}/virtualenvs
-        installer-parallel: true
-        
+      uses: snok/install-poetry@v1        
     - name: Install dependencies
       run: |
         poetry install --no-root --no-interaction
@@ -45,7 +38,9 @@ jobs:
       id: cached-poetry-dependencies
       uses: actions/cache@v3
       with:
-        path: /home/runner/.cache/pypoetry/virtualenvs
+        path: |
+          /home/runner/.cache/pypoetry/virtualenvs
+          D:\Users\runneradmin\AppData\Local\pypoetry\Cache\virtualenvs
         key: ${{ runner.os }}-venv
       
  lint:
@@ -64,19 +59,14 @@ jobs:
         with:
           python-version: "3.10"
       - name: Install Poetry
-        uses: snok/install-poetry@v1  
-        with:
-          version: latest
-          virtualenvs-create: true
-          virtualenvs-in-project: false
-          virtualenvs-path: ${{cache-dir}}/virtualenvs
-          installer-parallel: true
-        
+        uses: snok/install-poetry@v1          
       - name: Cache build venv
         id: cached-poetry-dependencies
         uses: actions/cache@v3
         with:
-          path: ${{cache-dir}}/virtualenvs
+          path: |
+            /home/runner/.cache/pypoetry/virtualenvs
+            D:\Users\runneradmin\AppData\Local\pypoetry\Cache\virtualenvs
           key: ${{ runner.os }}-venv
       - name: Task lint
         run: poetry run task lint
@@ -98,17 +88,13 @@ jobs:
           python-version: "3.10"
       - name: Install Poetry
         uses: snok/install-poetry@v1
-        with:
-          version: latest
-          virtualenvs-create: true
-          virtualenvs-in-project: false
-          virtualenvs-path: ${{cache-dir}}/virtualenvs
-          installer-parallel: true
       - name: Cache build venv
         id: cached-poetry-dependencies
         uses: actions/cache@v3
         with:
-          path: ${{cache-dir}}/virtualenvs
+          path: |
+            /home/runner/.cache/pypoetry/virtualenvs
+            D:\Users\runneradmin\AppData\Local\pypoetry\Cache\virtualenvs
           key: ${{ runner.os }}-venv
       - name: Task Formatter
         run: poetry run task formatter
@@ -130,22 +116,14 @@ jobs:
           python-version: "3.10"
       - name: Install Poetry
         uses: snok/install-poetry@v1
-        with:
-          version: latest
-          virtualenvs-create: true
-          virtualenvs-in-project: false
-          virtualenvs-path: ${{cache-dir}}/virtualenvs
-          installer-parallel: true
       - name: Cache build venv
         id: cached-poetry-dependencies
         uses: actions/cache@v3
-        with:
-          path: ${{cache-dir}}/virtualenvs
-          key: ${{ runner.os }}-venv
-      - name: Task lint
-        run: poetry run task lint
-      - name: Task Formatter
-        run: poetry run task formatter
+        with:          
+          path: |
+            /home/runner/.cache/pypoetry/virtualenvs
+            D:\Users\runneradmin\AppData\Local\pypoetry\Cache\virtualenvs
+            key: ${{ runner.os }}-venv
       - name: Task Security
         run: poetry run task security
   
@@ -166,17 +144,13 @@ jobs:
           python-version: "3.10"
       - name: Install Poetry
         uses: snok/install-poetry@v1
-        with:
-          version: latest
-          virtualenvs-create: true
-          virtualenvs-in-project: false
-          virtualenvs-path: ${{cache-dir}}/virtualenvs
-          installer-parallel: true
       - name: Cache build venv
         id: cached-poetry-dependencies
         uses: actions/cache@v3
         with:
-          path: ${{cache-dir}}/virtualenvs
+          path: |
+            /home/runner/.cache/pypoetry/virtualenvs
+            D:\Users\runneradmin\AppData\Local\pypoetry\Cache\virtualenvs
           key: ${{ runner.os }}-venv
       - name: Task UniTest
         run: poetry run task test
