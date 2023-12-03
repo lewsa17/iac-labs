@@ -30,7 +30,14 @@ jobs:
       with:
         python-version: "3.10"
     - name: Install Poetry
-      uses: snok/install-poetry@v1      
+      uses: snok/install-poetry@v1
+      with:
+        version: latest
+        virtualenvs-create: true
+        virtualenvs-in-project: false
+        virtualenvs-path: ${{cache-dir}}/virtualenvs
+        installer-parallel: true
+        
     - name: Install dependencies
       run: |
         poetry install --no-root --no-interaction
@@ -57,12 +64,19 @@ jobs:
         with:
           python-version: "3.10"
       - name: Install Poetry
-        uses: snok/install-poetry@v1      
+        uses: snok/install-poetry@v1  
+        with:
+          version: latest
+          virtualenvs-create: true
+          virtualenvs-in-project: false
+          virtualenvs-path: ${{cache-dir}}/virtualenvs
+          installer-parallel: true
+        
       - name: Cache build venv
         id: cached-poetry-dependencies
         uses: actions/cache@v3
         with:
-          path: /home/runner/.cache/pypoetry/virtualenvs
+          path: ${{cache-dir}}/virtualenvs
           key: ${{ runner.os }}-venv
       - name: Task lint
         run: poetry run task lint
@@ -83,12 +97,18 @@ jobs:
         with:
           python-version: "3.10"
       - name: Install Poetry
-        uses: snok/install-poetry@v1      
+        uses: snok/install-poetry@v1
+        with:
+          version: latest
+          virtualenvs-create: true
+          virtualenvs-in-project: false
+          virtualenvs-path: ${{cache-dir}}/virtualenvs
+          installer-parallel: true
       - name: Cache build venv
         id: cached-poetry-dependencies
         uses: actions/cache@v3
         with:
-          path: /home/runner/.cache/pypoetry/virtualenvs
+          path: ${{cache-dir}}/virtualenvs
           key: ${{ runner.os }}-venv
       - name: Task Formatter
         run: poetry run task formatter
@@ -109,12 +129,18 @@ jobs:
         with:
           python-version: "3.10"
       - name: Install Poetry
-        uses: snok/install-poetry@v1      
+        uses: snok/install-poetry@v1
+        with:
+          version: latest
+          virtualenvs-create: true
+          virtualenvs-in-project: false
+          virtualenvs-path: ${{cache-dir}}/virtualenvs
+          installer-parallel: true
       - name: Cache build venv
         id: cached-poetry-dependencies
         uses: actions/cache@v3
         with:
-          path: /home/runner/.cache/pypoetry/virtualenvs
+          path: ${{cache-dir}}/virtualenvs
           key: ${{ runner.os }}-venv
       - name: Task lint
         run: poetry run task lint
@@ -139,12 +165,18 @@ jobs:
         with:
           python-version: "3.10"
       - name: Install Poetry
-        uses: snok/install-poetry@v1          
+        uses: snok/install-poetry@v1
+        with:
+          version: latest
+          virtualenvs-create: true
+          virtualenvs-in-project: false
+          virtualenvs-path: ${{cache-dir}}/virtualenvs
+          installer-parallel: true
       - name: Cache build venv
         id: cached-poetry-dependencies
         uses: actions/cache@v3
         with:
-          path: /home/runner/.cache/pypoetry/virtualenvs
+          path: ${{cache-dir}}/virtualenvs
           key: ${{ runner.os }}-venv
       - name: Task UniTest
         run: poetry run task test
