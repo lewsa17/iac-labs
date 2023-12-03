@@ -17,7 +17,7 @@ jobs:
     strategy:
       matrix:
         os: [ "ubuntu-latest", "windows-latest" ]
-    runs-on: ubuntu-latest    
+    runs-on: ${{ matrix.os}}  
     defaults:
       run:
         working-directory: ./example-app
@@ -45,7 +45,7 @@ jobs:
     strategy:
       matrix:
         os: [ "ubuntu-latest", "windows-latest" ]
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os}}  
     defaults:
       run:
         working-directory: ./example-app
@@ -71,10 +71,10 @@ jobs:
     strategy:
       matrix:
         os: [ "ubuntu-latest", "windows-latest" ]
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os}}  
     defaults:
       run:
-        working-directory: /./example-app
+        working-directory: ./example-app
     needs: build
     steps:
       - uses: actions/checkout@v3
@@ -97,7 +97,7 @@ jobs:
     strategy:
       matrix:
         os: [ "ubuntu-latest", "windows-latest" ]
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os}}  
     defaults:
       run:
         working-directory: ./example-app
@@ -127,7 +127,7 @@ jobs:
     strategy:
       matrix:
         os: [ "ubuntu-latest", "windows-latest" ]
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os}}  
     defaults:
       run:
         working-directory: ./example-app
