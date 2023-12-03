@@ -39,8 +39,8 @@ jobs:
       uses: actions/cache@v3
       with:
         path: |
-          /home/runner/.cache/pypoetry/virtualenvs
-          D:\Users\runneradmin\AppData\Local\pypoetry\Cache\virtualenvs
+          ~/.cache/pypoetry/virtualenvs
+          ~/AppData/Local/pypoetry/Cache/virtualenvs
         key: ${{ runner.os }}-venv
       
  lint:
@@ -65,8 +65,8 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            /home/runner/.cache/pypoetry/virtualenvs
-            D:\Users\runneradmin\AppData\Local\pypoetry\Cache\virtualenvs
+            ~/.cache/pypoetry/virtualenvs
+            ~/AppData/Local/pypoetry/Cache/virtualenvs
           key: ${{ runner.os }}-venv
       - name: Task lint
         run: poetry run task lint
@@ -93,8 +93,8 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            /home/runner/.cache/pypoetry/virtualenvs
-            D:\Users\runneradmin\AppData\Local\pypoetry\Cache\virtualenvs
+            ~/.cache/pypoetry/virtualenvs
+            ~/AppData/Local/pypoetry/Cache/virtualenvs
           key: ${{ runner.os }}-venv
       - name: Task Formatter
         run: poetry run task formatter
@@ -120,9 +120,9 @@ jobs:
         id: cached-poetry-dependencies
         uses: actions/cache@v3
         with:          
-          path: |
-            /home/runner/.cache/pypoetry/virtualenvs
-            D:\Users\runneradmin\AppData\Local\pypoetry\Cache\virtualenvs
+          path: |   
+            ~/.cache/pypoetry/virtualenvs
+            ~/AppData/Local/pypoetry/Cache/virtualenvs
           key: ${{ runner.os }}-venv
       - name: Task Security
         run: poetry run task security
@@ -149,8 +149,8 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            /home/runner/.cache/pypoetry/virtualenvs
-            D:\Users\runneradmin\AppData\Local\pypoetry\Cache\virtualenvs
+            ~/.cache/pypoetry/virtualenvs
+            ~/AppData/Local/pypoetry/Cache/virtualenvs
           key: ${{ runner.os }}-venv
       - name: Task UniTest
         run: poetry run task test
